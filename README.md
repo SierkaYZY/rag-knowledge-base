@@ -202,7 +202,7 @@ The API is served with Uvicorn and automatically documented through Swagger UI.
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/SierkaYZY/rag-knowledge-base.git
 cd rag-knowledge-base
 ```
 
