@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+
+# Vector database
+chroma_db/
+chroma.db/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
