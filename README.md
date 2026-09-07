@@ -197,6 +197,20 @@ The API is served with Uvicorn and automatically documented through Swagger UI.
 }
 ```
 
+### POST /search
+
+Provides retrieval-only access to the knowledge base.
+
+Unlike `/ask`, this endpoint does not invoke the LLM. It returns the Top-K ChromaDB retrieval results directly, including document content, metadata, and vector distance.
+
+This endpoint is designed for integration with external Agent systems.
+
+### 7.Retrieval Resource Reuse
+
+The embedding model, ChromaDB client, and collection are initialized once when the retrieval module is loaded and reused across requests.
+
+This avoids repeatedly loading the SentenceTransformer model for every `/search` request.
+
 ## Installation
 
 Clone the repository:

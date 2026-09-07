@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from rag_pipeline.rag_qa import rag_answer
+from rag_pipeline.query_database import retrieve_knowledge
 
 MODEL_NAME = "BAAI/bge-small-zh-v1.5"
 
@@ -30,3 +31,18 @@ def ask(request: AskRequest):
     }
 
 
+class SearchRequest(BaseModel):
+    question: str
+    top_k: int = 3
+
+@app.post("/search")
+def search(request: SearchRequest):
+    results = retrieve_knowledge(
+        request.question,
+        request.top_k
+    )
+
+    return {
+        "question": request.question,
+        "results": results
+    }
