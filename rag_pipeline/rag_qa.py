@@ -7,7 +7,6 @@ from retrieval.result_filter import filter_results_by_distance
 #  根据知识库检索结果生成最终回答
 def rag_answer(
         query, 
-        model_name, 
         top_k=2,
         max_distance = 0.95,
         debug= False
@@ -28,7 +27,7 @@ def rag_answer(
             大语言模型生成的最终回答。
     """
 
-    raw_results = query_document(query,model_name,top_k)
+    raw_results = query_document(query,top_k)
 
     results = filter_results_by_distance(
     raw_results,
